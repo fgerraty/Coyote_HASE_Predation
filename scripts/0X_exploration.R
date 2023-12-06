@@ -22,12 +22,20 @@ ggplot(annual_summary,
            fill = factor(age, levels = c("pup", "adult"))))+
   #Stacked bar chart
   geom_bar(stat = "identity", position="stack")+
-  facet_wrap(facets = "subsite", ncol=1, scales = "free_y")+ #facet by site
+  facet_wrap(facets = "subsite", 
+             ncol=1, scales = "free_y", 
+             labeller = labeller(subsite = site_names))+ #facet by site
   theme_few()+
   labs(y = "Maximum # Individuals Documented Per Year", x="Year", fill = "Age Class")+
   scale_fill_manual(values = c("#22A884FF","#440154FF"))
 
+
+ggsave("output/annual_summary.png", width = 7.5, height = 10, units = "in")
+
+
 #Trends of Seal Pup Timing ##################
+
+site_names <- c(MC = "MacKerricher", DE = "Drake's Estero", DP = "Double Point", BL = "Bolinas Lagoon")
 
 timing_summary <- seals %>% 
   filter(age == "pup") %>% 
@@ -37,9 +45,13 @@ timing_summary <- seals %>%
 
 ggplot(timing_summary, aes(x=day, y=count, color = year))+
   geom_point()+
-  facet_wrap(facets = "subsite", ncol = 1, scales = "free_y")+
+  facet_wrap(facets = "subsite", 
+             ncol = 1, scales = "free_y", 
+             labeller = labeller(subsite = site_names))+
   scale_color_viridis_d()+
   theme_few()+
   labs(y = "# Pups Observed", x="Day of Year", fill = "Year")
+
+ggsave("output/timing_summary.png", width = 7.5, height = 10, units = "in")
 
   
