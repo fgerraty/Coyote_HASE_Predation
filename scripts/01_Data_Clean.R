@@ -23,7 +23,7 @@ PRNS_seals <- read_excel("data/raw/PRNS_HarborSealCounts_2010_2022.xlsx") %>%
 
 
 # Import and clean MacKerricher harbor seal population data (1 site) ---------
-MC_seals <- read_excel("data/raw/Mackerricher_HASE_Counts_Pre2018.xlsx") %>% 
+MC_seals_pre2018 <- read_excel("data/raw/Mackerricher_HASE_Counts_Pre2018.xlsx") %>% 
   clean_names() %>% 
   filter(location == "R") %>% 
   select(date, time, adult, pup) %>%  #select relevant columns
@@ -34,7 +34,7 @@ MC_seals <- read_excel("data/raw/Mackerricher_HASE_Counts_Pre2018.xlsx") %>%
          subsite = "MC")
 
 #Combine all seal data together and export ------------------------------------
-seals <- rbind(PRNS_seals, MC_seals) 
+seals <- rbind(PRNS_seals, MC_seals_pre2018)
 
 write_csv(seals, "data/clean/seals.csv")
   
