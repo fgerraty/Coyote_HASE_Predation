@@ -30,7 +30,7 @@ ggplot(annual_summary,
   scale_fill_manual(values = c("#22A884FF","#440154FF"))
 
 
-ggsave("output/annual_summary.png", width = 7.5, height = 10, units = "in")
+ggsave("output/extra_figures/annual_summary.png", width = 7.5, height = 10, units = "in")
 
 
 #Trends of Seal Pup Timing ##################
@@ -57,7 +57,7 @@ ggplot(timing_summary, aes(x=day, y=count))+
   scale_size_continuous(range = c(.5,1.5))+
   theme(legend.position = "none")
 
-ggsave("output/timing_summary.png", width = 7.5, height = 10, units = "in")
+ggsave("output/extra_figures/timing_summary.png", width = 7.5, height = 10, units = "in")
 
   
 

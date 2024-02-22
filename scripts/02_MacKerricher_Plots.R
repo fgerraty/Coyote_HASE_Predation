@@ -41,7 +41,7 @@ ggplot(MC_summary,
   scale_fill_manual(values = c("red", "#22A884FF","#440154FF"), labels = c("Coyote-\nKilled Pup", "Pup", "Adult"))+
   theme(legend.position = c(0.9, 0.83))
 
-ggsave("output/MC_annual_summary.png", width = 7, height = 4.5, units = "in")
+ggsave("output/extra_figures/MC_annual_summary.png", width = 7, height = 4.5, units = "in")
   
 
 
@@ -76,4 +76,4 @@ ggplot(MC_timing_summary, aes(x=day, y=count))+
          label.position = "top"))+
   theme(legend.position = c(0.865, 0.83))
 
-ggsave("output/MC_timing_summary.png", width = 7, height = 4.5, units = "in")
+ggsave("output/extra_figures/MC_timing_summary.png", width = 7, height = 4.5, units = "in")
