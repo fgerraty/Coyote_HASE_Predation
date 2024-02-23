@@ -1,4 +1,4 @@
-# California Coast Coyotes Prey on Harbor Seal Pups
+# Coyotes Hunt Harbor Seal Pups along the California Coast
 
 *FD Gerraty, S Codde, S Grimes, S Allen, S Pemberton. In Prep*
 
