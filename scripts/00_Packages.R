@@ -8,6 +8,6 @@
 # Part 1: Load Packages --------------------------------------------------
 
 # Load packages
-packages<- c("tidyverse", "janitor", "readxl", "ggthemes", "viridis", "hms")
+packages<- c("tidyverse", "janitor", "readxl", "ggthemes", "viridis", "hms", "ggspatial")
 
-pacman::p_load(packages, character.only = TRUE)
+pacman::p_load(packages, character.only = TRUE); rm(packages)
