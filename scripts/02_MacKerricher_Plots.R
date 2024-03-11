@@ -77,3 +77,32 @@ ggplot(MC_timing_summary, aes(x=day, y=count))+
   theme(legend.position = c(0.865, 0.83))
 
 ggsave("output/extra_figures/MC_timing_summary.png", width = 7, height = 4.5, units = "in")
+
+#EXPLORATION: -----
+
+MC_temp_1 <- MC_summary %>% 
+  pivot_wider(names_from = age, values_from = max_number) %>% 
+  replace_na(list(dead_pup = 0)) %>% 
+  mutate(all_pup = pup+dead_pup, 
+         ratio = pup/adult) %>% 
+  select(-dead_pup) %>% 
+  pivot_longer(cols = 3:4, 
+               names_to = "age", 
+               values_to = "count")
+
+
+ggplot(MC_temp_1, aes(x=adult, y=count, color = age))+
+  geom_point()+
+  geom_smooth(method = "glm")+
+  labs(y="pup_count", x="adult_count")#+
+  scale_color_manual(labels = c("no predation", "with predation"))
+  
+  
+ MC_temp_2 <-  MC_summary %>% 
+    pivot_wider(names_from = age, values_from = max_number) %>% 
+    replace_na(list(dead_pup = 0)) %>% 
+    mutate(all_pup = pup+dead_pup, 
+           ratio = pup/adult) 
+  
+ggplot(MC_temp_2, aes(x=year, y=ratio))+
+  geom_point()
